@@ -6,7 +6,7 @@ module Doorkeeper
       if pre_auth.authorizable?
         if skip_authorization? || matching_token?
           auth = authorization.authorize
-          redirect_to auth.redirect_uri
+          redirect_to auth.redirect_uri, flash: flash
         else
           render :new
         end
